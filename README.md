@@ -1,79 +1,75 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Time Master
 
-# Getting Started
+Time Master is a user-friendly productivity app that helps you manage your time effectively. Create custom stopwatches for different tasks, easily switch between them, and track your time investment. The app also features a to-do list, automatically saves your time data, and presents it in a graph. Stay organized, boost productivity, and gain insights into your time allocation with Time Master.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+<h3 align="center"> Figma Designs </h3>
+<div align="center">
+    <img src="https://github.com/Ayush-gupta-dev/TimeApp-aws-hashnode/blob/main/PresentationFigma.gif" alt="Slideshow" height="350">
+   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+   <img src="https://github.com/Ayush-gupta-dev/TimeApp-aws-hashnode/blob/main/ScreenFigma.gif" alt="Slideshow" height="350">
+</div>
 
-## Step 1: Start the Metro Server
+### Tech Stack
+<li> React-native cli (frontend) </li>
+<li> Redux (todo) </li>
+<li> Aws Amplify (Authentication,API & storage) </li>
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### Project Overview
+Time Master is a productivity app designed to help you effectively manage your time and tasks. With Time Master, you can create custom stopwatches for different activities or tasks in your daily life. Simply start and stop the stopwatch as you switch between tasks, allowing you to accurately track the time invested in each activity.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+In addition to the stopwatch feature, Time Master also includes a convenient to-do list. You can easily create and organize your tasks, ensuring that nothing falls through the cracks. The user-friendly interface makes it simple to add, edit, and mark tasks as completed.
 
-```bash
-# using npm
-npm start
+Time Master takes care of data management for you. Your time data is automatically saved, calculating the total hours invested in each task. The app presents this information in a visually appealing graph, giving you a clear overview of your time allocation.
 
-# OR using Yarn
-yarn start
-```
+To ensure your data is always saved and secure, Time Master automatically stores your time entries in a database. This means that even if you close the app or the day changes, your time records are preserved.
 
-## Step 2: Start your Application
+Time Master is designed to simplify your time management process while providing valuable insights into how you spend your time. With its intuitive interface and seamless data handling, it empowers you to stay organized, increase productivity, and make the most of your valuable time.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### Installation
+<li> The App is currently available in ###
 
-### For Android
+<!-- 
+## Usage
 
-```bash
-# using npm
-npm run android
+[Provide examples and instructions on how to use your project, including any configuration options or command-line interface instructions.]
 
-# OR using Yarn
-yarn android
-```
+## Features
 
-### For iOS
+[List the main features and functionalities of your project.]
 
-```bash
-# using npm
-npm run ios
+## Contributing
 
-# OR using Yarn
-yarn ios
-```
+[Specify guidelines and instructions for contributors, including how to report issues and submit pull requests.]
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## License
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+[Specify the license under which your project is released. You can include the full license text or provide a link to a separate LICENSE.md file.]
 
-## Step 3: Modifying your App
+## Acknowledgments
 
-Now that you have successfully run the app, let's modify it.
+[If applicable, thank any individuals, organizations, or resources that you used or were inspired by while creating your project.]
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Frequently Asked Questions
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+[Include a list of frequently asked questions and their answers, if applicable.]
 
-## Congratulations! :tada:
+## Contact
 
-You've successfully run and modified your React Native App. :partying_face:
+[Provide contact information for users to reach out to you with questions or feedback.]
 
-### Now what?
+## Maintainers
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+[List the maintainers or contributors to the project and provide a way to contact them.]
 
-# Troubleshooting
+## Roadmap
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+[Outline the future development plans and upcoming features or improvements.]
 
-# Learn More
+## Changelog
 
-To learn more about React Native, take a look at the following resources:
+[Document the changes made in each version of your project, along with the release dates.]
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Resources
+
+[Provide links to any external resources, such as documentation, tutorials, or related articles.]
+-->
