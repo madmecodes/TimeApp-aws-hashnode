@@ -1,0 +1,72 @@
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+
+const Stopwatch = ({ id, time, onStart, onStop, isActive }) => {
+  const [isRunning, setIsRunning] = useState(false);
+  const [currentTime, setCurrentTime] = useState(time);
+
+  useEffect(() => {
+    let intervalId = null;
+    if (isRunning && isActive) {
+      intervalId = setInterval(() => {
+        setCurrentTime((currentTime) => currentTime + 1);
+      }, 1000);
+    } else if (!isRunning || !isActive) {
+      clearInterval(intervalId);
+    }
+    return () => clearInterval(intervalId);
+  }, [isRunning, isActive, currentTime]);
+
+  const formattedTime = () => {
+    const hours = Math.floor(currentTime / 3600);
+    const minutes = Math.floor((currentTime % 3600) / 60);
+    const seconds = currentTime % 60;
+    return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  };
+
+  return (
+    <View style={{ padding: 20 }}>
+      <Text>{formattedTime()}</Text>
+      <TouchableOpacity onPress={() => {
+        setIsRunning(!isRunning);
+        isRunning ? onStop() : onStart(id);
+      }}>
+        <Text>{isRunning && isActive ? 'Stop' : 'Start'}</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const App = () => {
+  const [activeStopwatch, setActiveStopwatch] = useState(null);
+  const [stopwatches, setStopwatches] = useState([
+    { id: 1, time: 0 },
+    { id: 2, time: 30 },
+    { id: 3, time: 60 },
+  ]);
+
+  const handleStart = (id) => {
+    setActiveStopwatch(id);
+  };
+
+  const handleStop = () => {
+    setActiveStopwatch(null);
+  };
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      {stopwatches.map((stopwatch) => (
+        <Stopwatch
+          key={stopwatch.id}
+          id={stopwatch.id}
+          time={stopwatch.time}
+          onStart={handleStart}
+          onStop={handleStop}
+          isActive={activeStopwatch === stopwatch.id}
+        />
+      ))}
+    </View>
+  );
+};
+
+export default App;

@@ -1,5 +1,5 @@
 {
-  "name": "Time Master",
+  "name": "timeManager2",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,28 +10,53 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.11",
+    "@react-navigation/bottom-tabs": "^6.5.3",
+    "@react-navigation/native": "^6.1.2",
+    "@react-navigation/native-stack": "^6.9.8",
+    "@react-navigation/stack": "^6.3.11",
+    "@reduxjs/toolkit": "^1.9.1",
+    "deprecated-react-native-prop-types": "^4.0.0",
+    "moment": "^2.29.4",
+    "patch-package": "^6.5.1",
     "react": "18.2.0",
-    "react-native": "0.72.3",
-    "react-native-splash-screen": "^3.3.0"
+    "react-native": "0.71.1",
+    "react-native-background-actions": "^3.0.0",
+    "react-native-background-timer": "^2.4.1",
+    "react-native-check-box": "^2.1.7",
+    "react-native-dropdown-select-list": "^2.0.4",
+    "react-native-element": "^1.2.1",
+    "react-native-gesture-handler": "^2.9.0",
+    "react-native-icon-picker": "^1.0.6",
+    "react-native-safe-area-context": "^4.5.0",
+    "react-native-screens": "^3.19.0",
+    "react-native-splash-screen": "^3.3.0",
+    "react-native-svg": "^13.7.0",
+    "react-native-vector-icons": "^9.2.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
-    "@react-native/eslint-config": "^0.72.2",
-    "@react-native/metro-config": "^0.72.9",
-    "@tsconfig/react-native": "^3.0.0",
+    "@react-native-community/eslint-config": "^3.0.0",
+    "@tsconfig/react-native": "^2.0.2",
+    "@types/jest": "^29.2.1",
     "@types/react": "^18.0.24",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.2.1",
     "eslint": "^8.19.0",
     "jest": "^29.2.1",
-    "metro-react-native-babel-preset": "0.76.7",
+    "metro-react-native-babel-preset": "0.73.7",
     "prettier": "^2.4.1",
     "react-test-renderer": "18.2.0",
     "typescript": "4.8.4"
   },
-  "engines": {
-    "node": ">=16"
+  "jest": {
+    "preset": "react-native"
   }
 }
