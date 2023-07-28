@@ -7,7 +7,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { editCard } from '../redux/cardSlice'
  import Icons from '../iconPicker/Icons'
 import TargetTime from '../TargetTime/TargetTime'
-import { timerStopwatch } from '../redux/cardSlice'
+//import { timerStopwatch } from '../redux/cardSlice'
  
 const Editactivity = ({route,navigation}) => {
     const dispatch=useDispatch()
@@ -19,13 +19,39 @@ const Editactivity = ({route,navigation}) => {
     const [text, setText] = useState(object.title);
     const [colordata, setcolordata] = useState(object.color)
     const [targetTime, settargetTime] = useState(object.targetTime)
-    const [timerEdit, settimerEdit] = useState(object.timer)
+    const [timeElapsedEdit, settimeElapsedEdit] = useState(object.timeElapsed)
+    const [timerEdit, settimerEdit] = useState({"h": 0, "m": 0, "s": 0})
+  
+    function convertTimerToSeconds(timerEdit) {
+      const { h, m, s } = timerEdit;
+      const totalSeconds = h * 3600 + m * 60 + s;
+      return totalSeconds;
+    }
     let updatedS = timerEdit.s, updatedM = timerEdit.m, updatedH = timerEdit.h;
+  // updating in object timer {h:0,m:0,s:0}
+    useEffect(() => {
+      let hours = Math.floor(timeElapsedEdit / 3600);
+      let minutes = Math.floor((timeElapsedEdit % 3600) / 60);
+      let seconds = timeElapsedEdit % 60;
+      let timerObject={'h':hours,'m':minutes,'s':seconds}
+      settimerEdit(timerObject)
+    }, [])    
+    //updating in seconds
+    useEffect(() => {
+      let timeInSec= convertTimerToSeconds(timerEdit);
+      settimeElapsedEdit(timeInSec)
+    }, [timerEdit])
+    
+
     const increment=(val)=>{
       if(val==='hour'){
         if(updatedH<23){
+          
         updatedH++
-       settimerEdit({ s:updatedS, m:updatedM, h:updatedH})}
+       settimerEdit({ s:updatedS, m:updatedM, h:updatedH})
+        
+      }
+     
        else{
         alert('limit reached')
        }
@@ -60,6 +86,8 @@ const Editactivity = ({route,navigation}) => {
         if(0<updatedH&&updatedH<24){
         updatedH--
        settimerEdit({ s:updatedS, m:updatedM, h:updatedH})}
+       let timeInSec= convertTimerToSeconds(timerEdit);
+      settimeElapsedEdit(timeInSec)
       }
       if(val==='minute'){
         if(0<updatedM&&updatedM<60){
@@ -77,12 +105,13 @@ const Editactivity = ({route,navigation}) => {
     const resetStopWatch=()=>{
       settimerEdit({ s:0, m:0, h:0})
     }
-    
+ 
 
     const editBtn=()=>{
+      
         dispatch(editCard({
-            id:id,title:text,icon:icondata,color:colordata,targetTime:targetTime
-            ,timer:timerEdit
+            id:id,title:text,icon:icondata,color:colordata,targetTime:targetTime,
+            timeElapsed:timeElapsedEdit
         }))
         //dispatch(timerStopwatch({id:id,timer:timerEdit}))
         navigation.goBack()
@@ -183,8 +212,9 @@ const gettingIconData=(ICON)=>{
          </TouchableOpacity>
         </View>
 
+
         {/* SAVING THE DATA */}
-        <TouchableOpacity style={styles.savebtn} onPress={()=>editBtn()} >
+        <TouchableOpacity style={styles.savebtn} onPress={editBtn} >
           <Text style={{color:'#3167A6',fontSize:28,marginBottom:4}}>DONE</Text>
         </TouchableOpacity>
      </View>

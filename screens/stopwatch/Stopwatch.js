@@ -6,8 +6,6 @@ import Card from './Card'
 import { useSelector } from 'react-redux'
 import { defaultTemplate } from './redux/cardSlice'
 import { useDispatch } from 'react-redux'
-import Card_original from './Card_originalTxt'
-
 
 const Stopwatch = ({navigation}) => {
   const dispatch =useDispatch()
@@ -16,7 +14,7 @@ const Stopwatch = ({navigation}) => {
   const DefaultTemplate=()=>{
     dispatch(defaultTemplate())
   }
-
+  
   return (
     
     <SafeAreaView style={styles.Mconatiner}>

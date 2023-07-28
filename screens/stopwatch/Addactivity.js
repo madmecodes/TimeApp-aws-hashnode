@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import ModalTest from './colorPicker/ModalTest'
 
 import Icons from './iconPicker/Icons'
-import TargetTime from './TargetTime/TargetTime'
+import TargetTime from './TargetTime/TargetTime.js'
 
 import { addCard } from './redux/cardSlice'
 import { useDispatch } from 'react-redux'
@@ -20,7 +20,7 @@ const Addactivity = ({ navigation}) => {
  const dispatch =useDispatch()
 
   const gettingIconData=(ICON)=>{ 
-    seticondata(ICON)  
+    seticondata(ICON);
   }
   const gettingTargetTime=(time)=>{ 
     settargetTime(time)

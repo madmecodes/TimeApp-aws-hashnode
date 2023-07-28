@@ -34,7 +34,7 @@ const TargetTime = (props) => {
   }
   const DoneTime=()=>{
     props.gettingTargetTime({h:selectedHr,m:selectedMin})
-    // console.log(targetData);
+    //console.log(targetData);
     changeModalVisibility(false)
   }
 
@@ -58,27 +58,27 @@ const TargetTime = (props) => {
         onRequestClose={() => changeModalVisibility(false)}>
 
           <View style={{backgroundColor:'#000000aa',flex:1,alignItems:'center'}}>
-          <View style={{alignItems:'center',marginTop:200,backgroundColor:'white',width:300,}}>
-        <Text style={{margin:5,fontWeight:'800',fontSize:20}}>SET TARGET TIME</Text>
+          <View style={{alignItems:'center',marginTop:200,backgroundColor:'#23395d',width:300,borderRadius:20}}>
+        <Text style={{margin:5,fontWeight:'800',fontSize:20,color:'white'}}>SET TARGET TIME</Text>
          {/* chossing time drop down */}
         <View  style={{width:300,height:250,justifyContent:'center',flexDirection:'row',paddingTop:40}}>
-        <Text style={{fontSize:18,fontWeight:'700',margin:10}}>Hour</Text>
+        <Text style={{fontSize:15,fontWeight:'400',margin:10,color:'white'}}>Hr</Text>
         <SelectList data={dataHour} setSelected={(val) => setSelectedHr(val)}
-         searchicon={<MaterialCommunityIcons name="target" size={20} color={'black'} />} 
+         searchicon={<MaterialCommunityIcons name="target" size={20} color={'white'} />} 
          search={true} 
          save="value"
          maxHeight={150}
-         boxStyles={{borderRadius:0,width:70}} //override default styles
+         boxStyles={{borderRadius:0,width:70,backgroundColor:'#dadada'}} //override default styles
          defaultOption={{ key:'0', value:'0' }} 
         />
        
-      <Text style={{fontSize:18,fontWeight:'700',margin:10}}>Min</Text>
-      <SelectList data={dataMin} setSelected={(val) => setSelectedMin(val)}
-        searchicon={<MaterialCommunityIcons name="target" size={20} color={'black'} />} 
-        search={true} 
+      <Text style={{fontSize:15,fontWeight:'400',margin:10,color:'white'}}>min</Text>
+      <SelectList data={dataMin}  setSelected={(val) => setSelectedMin(val)}
+        searchicon={<MaterialCommunityIcons name="target" size={20} color={'white'} />} 
+        search={true}
         save="value"
         maxHeight={150}
-        boxStyles={{borderRadius:0,width:70}} //override default styles
+        boxStyles={{borderRadius:0,width:70,backgroundColor:'#dadada'}} //override default styles
       defaultOption={{ key:'0', value:'0' }} />
         </View>
 

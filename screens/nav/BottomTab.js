@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Stats from '../screens/Stats'
-import Todo from '../screens/Todo'
-import Stopwatch from '../screens/stopwatch/Stopwatch';
-import Table from '../screens/Table'
+import Stats from '../Stats'
+import Todo from '../Todo'
+import Stopwatch from '../stopwatch/Stopwatch';
+import Table from '../Table'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
 import AntDesign from 'react-native-vector-icons/AntDesign'

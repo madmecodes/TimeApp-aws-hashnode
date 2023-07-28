@@ -14,7 +14,14 @@ const Card = () => {
   const navigation = useNavigation(); 
   const dispatch=useDispatch() 
   const [stopwatches, setStopwatches] = useState(data);
-  
+
+  //update data as editactivty and add_activity changes
+useEffect(()=>{
+  setStopwatches(data);
+ // console.log(data);
+},[data,data.length])
+
+
   const handleDelete=(ID)=>{
     return Alert.alert(
       "Are your sure?",
@@ -49,6 +56,7 @@ const Card = () => {
     let updatedStopwatches = [...stopwatches];
     updatedStopwatches[index].isRunning = false;
     setStopwatches(updatedStopwatches);
+    console.log(stopwatches);
 
   };
   
@@ -60,20 +68,19 @@ const Card = () => {
         if (stopwatch.isRunning) {
           stopwatch.timeElapsed++
           dispatch(timerStopwatch({id:stopwatch.id,timeElapsed:stopwatch.timeElapsed}))
-          console.log(stopwatch.id);
+         
           setStopwatches(updatedStopwatches);
+         
         }
       });
     }, 750);
     return () => clearInterval(intervalId);
   }, [stopwatches]);
   
-  useEffect(()=>{
-    setStopwatches(data);
-  },[,data.length])
+
 
   
-  const formatTime = timeInSeconds => {
+  const formatTime = (timeInSeconds,title) => {
     let hours = Math.floor(timeInSeconds / 3600);
     let minutes = Math.floor((timeInSeconds % 3600) / 60);
     let seconds = timeInSeconds % 60;
@@ -110,7 +117,7 @@ const Card = () => {
          <View style={{display:'flex',flexDirection:'row',alignItems:'center',
       justifyContent:'center',width:120,position:'absolute',bottom:10,right:0,}}>
       <MaterialCommunityIcons name='target' size={23} color='white'/>
-        {((parseInt(e.timer.h*60)+parseInt(e.timer.m))
+        {(parseInt(e.timeElapsed)
         <(parseInt(e.targetTime.h*60)
         +parseInt(e.targetTime.m)))
         || (e.targetTime.h==0&&e.targetTime.m==0)
@@ -122,10 +129,14 @@ const Card = () => {
         :<Text style={{color:'white'}}>completed!</Text>
       }
             </View>
+
        {/* TIMER STOPWATCH 00:00 */}
         <View style={styles.timerContainer}>
-        <Text style={styles.timerNUM}>{formatTime(e.timeElapsed)}</Text>
+        <Text style={styles.timerNUM}>
+           {formatTime(e.timeElapsed,e.title)}
+         </Text>
         </View>
+
         {/* START AND STOP*/}
       <View style={{position:'absolute'}}>
     {(e.isRunning==false)? 

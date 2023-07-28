@@ -14,25 +14,29 @@ export const cardSlice=createSlice({
                 icon:action.payload.icon,
                 color:action.payload.color,
                 targetTime:action.payload.targetTime,
-                //timer, i guess we don not need time in hr-min format store and directly as seconds  
-               timer:{s:0, m:0, h:0},
-               //saving the date
                date:moment(date).format('DD/MM/YYYY'),
-               //new entries
                isRunning: false,
                timeElapsed: 0
             };
             state.push(newCard)
-           console.log(newCard.timeElapsed)
+        },
+        editCard:(state,action)=>{
+            const index=state.findIndex((edit)=>edit.id===action.payload.id)
+            state[index].title=action.payload.title
+            state[index].icon=action.payload.icon
+            state[index].color=action.payload.color
+            state[index].targetTime=action.payload.targetTime
+            state[index].timeElapsed=action.payload.timeElapsed
+           return state
         },
         deleteCard:(state,action)=>{
             return state.filter((card)=>card.id !== action.payload.id)
         },
         defaultTemplate:(state,action)=>{
         state.push(
-                {title:'STUDY',icon:'book',color:'white',targetTime:{h:3,m:0},id:new Date().getTime(),timer:{s:0, m:0, h:0},date:moment(date).format('DD/MM/YYYY'),isRunning: false,timeElapsed: 0},
-                {title:'WORKOUT',icon:'barbell',color:'white',targetTime:{h:1,m:15},id:new Date().getTime()+1,timer:{s:0, m:0, h:0},date:moment(date).format('DD/MM/YYYY'),isRunning: false,timeElapsed: 0},
-                {title:'CODING',icon:'code',color:'white',targetTime:{h:3,m:0},id:new Date().getTime()+2,timer:{s:0, m:0, h:0},date:moment(date).format('DD/MM/YYYY'),isRunning: false,timeElapsed:0},     
+                {title:'STUDY',icon:'book',color:'white',targetTime:{h:3,m:0},id:new Date().getTime(),date:moment(date).format('DD/MM/YYYY'),isRunning: false,timeElapsed: 0},
+                {title:'WORKOUT',icon:'barbell',color:'white',targetTime:{h:1,m:15},id:new Date().getTime()+1,date:moment(date).format('DD/MM/YYYY'),isRunning: false,timeElapsed: 0},
+                {title:'CODING',icon:'code',color:'white',targetTime:{h:3,m:0},id:new Date().getTime()+2,date:moment(date).format('DD/MM/YYYY'),isRunning: false,timeElapsed:0},     
                 )
         },
         timerStopwatch:(state,action)=>{
@@ -42,18 +46,7 @@ export const cardSlice=createSlice({
 
             //state[index].stopwatchOn=action.payload.stopwatchOn
             //console.log(state[index].stopwatchOn);
-        },
-        editCard:(state,action)=>{
-            const index=state.findIndex((edit)=>edit.id===action.payload.id)
-            state[index].title=action.payload.title
-            state[index].icon=action.payload.icon
-            state[index].color=action.payload.color
-            state[index].targetTime=action.payload.targetTime
-            state[index].timer=action.payload.timer
-           // console.log(state[index].timer,'edit')
-
-        
-        },
+        }
         
     }
 })

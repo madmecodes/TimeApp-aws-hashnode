@@ -5,12 +5,14 @@ import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 // import Stopwatch from './Stopwatch';
 import { NavigationContainer } from '@react-navigation/native';
-import BottomTab from '../../nav/BottomTab'
 import Editactivity from './EDIT_ACTIVITY/Editactivity';
+import BottomTab from '../nav/BottomTab';
 
 const Stack = createStackNavigator();
  
-const Mainstopwatch = () => {
+// MAIN SCREEN IS CALLING BOTTOM_NAV_BAR ADD_ACTIVITY EDIT_ACTIVITY
+
+const MainScreen = () => {
   return (
  <NavigationContainer independent={true}>
     <Stack.Navigator initialRouteName='STOPWATCH' screenOptions={{
@@ -25,6 +27,6 @@ const Mainstopwatch = () => {
   )
 }
 
-export default Mainstopwatch
+export default MainScreen
 
 const styles = StyleSheet.create({})
