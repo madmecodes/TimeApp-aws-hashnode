@@ -2,66 +2,21 @@ import { StyleSheet, Text, View,Button ,FlatList } from 'react-native'
 import React,{useEffect, useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useSelector,useDispatch } from 'react-redux'
-import { storeTableData } from './stopwatch/redux/cardSlice'
 import moment from 'moment';
 
 const Table = () => {
- 
-  const todayTableData = useSelector((state)=>state.tableData)
-  const dispatch=useDispatch()
   const data=useSelector((state)=>state.cards)
   
-  //let today = new Date().toLocaleDateString('en-IN');;
-
-  const date = new Date();
-  let today = moment(date).format('DD/MM/YYYY');
- 
-  //CHECKING IF NO DATA THEN CLEAR TABLE
-  const sendTableData=()=>{ 
-    let TABLE_DATA= data.map((e)=>{ 
-       let CardDate=e.date 
-      //  let cardDateGet = new Date(Cardtime)
-      //  let cardDate=moment(cardDateGet).format('DD/MM/YYYY')
-       if(CardDate==today){
-         let requiredTableData={title:e.title,timerHour:e.timer.h,timerMinute:e.timer.m}
-         return requiredTableData
-       }
-       else{return Cardtime}
-     })
-    // console.log(TABLE_DATA); //yahan se TABLE DATA DISPATCH HUGA
-     //console.log(data);
-     let filteredArray = TABLE_DATA.filter(element => element !== undefined);
-     dispatch(storeTableData(filteredArray))
-   }
-  useEffect(() => {
-    if(data.length==0){
-      sendTableData()
-     // console.log('hi');
-    }
-  }, [data.length==0]
-  )
- 
-const TOTAL_TIME=()=>{
-  let timeH=todayTableData.map((e)=>{
-  return e.timerHour
-})
-let totalH = 0;
-for (const number of timeH) {
-totalH += number;
-}
-let timeMin=todayTableData.map((e)=>{
-  return e.timerMinute
-})
-let totalM = 0;
-for (const number of timeMin) {
-totalM += number;
-}
-let total_time = (totalH + totalM/60)
-const hoursInt = Math.floor(total_time);
-const minutes = (total_time - hoursInt) * 60;
-return `${hoursInt}:${minutes<10? '0'+ minutes.toFixed(0):minutes.toFixed(0)}`
-}
-
+  let today = moment(new Date()).format('DD/MM/YYYY');
+  // Filter the data to only include items with the present date
+  const filteredData = data.filter((item) => item.date === today);
+  // Sum up all the timeElapsed values
+  const totalTimeElapsedInSeconds = filteredData.reduce((total, item) => total + item.timeElapsed, 0);
+  // Calculate hours and minutes from the total timeElapsed
+  const totalHours = Math.floor(totalTimeElapsedInSeconds / 3600);
+  const totalMinutes = Math.floor((totalTimeElapsedInSeconds % 3600) / 60);
+  // Format the total timeElapsed as "hr:min"
+  const totalTimeFormatted = `${totalHours}:${totalMinutes.toString().padStart(2, '0')}`;
   return (
     <SafeAreaView style={styles.Mconatiner}>
        <View style={styles.datecontainer}>
@@ -77,17 +32,16 @@ return `${hoursInt}:${minutes<10? '0'+ minutes.toFixed(0):minutes.toFixed(0)}`
       </View>
      
     <FlatList
-    data={todayTableData}
+    data={filteredData}
     renderItem={({ item }) => (
       <View style={styles.row}>
         <View style={styles.cellField}>
         <Text style={styles.cellData}>{item.title}</Text>
         </View>
         <View style={[styles.cellField,{display:'flex',flexDirection:'row',justifyContent:'center'}]}>
-        <Text style={{fontSize:20,color:'white'}}>{item.timerHour}</Text>
-        <Text style={{color:'white',marginTop:4,paddingTop:2}}>h</Text>
-        <Text style={{fontSize:20,color:'white'}}>{item.timerMinute}</Text>
-        <Text style={{color:'white',marginTop:4,paddingTop:2}}>m</Text>
+        <Text style={{fontSize:20,color:'white'}}>
+        {`${Math.floor(item.timeElapsed / 3600)}h ${Math.floor((item.timeElapsed % 3600) / 60)}m`}
+          </Text>
         </View>
       </View>
     )}
@@ -100,7 +54,9 @@ return `${hoursInt}:${minutes<10? '0'+ minutes.toFixed(0):minutes.toFixed(0)}`
     </View>
     <View style={styles.totalHour}>
     <View style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
-        <Text style={{fontSize:27,color:'white'}}>{TOTAL_TIME()}</Text>
+        <Text style={{fontSize:27,color:'white'}}>
+          {totalTimeFormatted}
+        </Text>
         <Text style={{fontSize:20,color:'white',paddingTop:6}}>(h)</Text>
         </View>
     </View>

@@ -75,36 +75,9 @@ export const todoSLice =createSlice({
     }
 })
 
-export const tableDataSlice=createSlice({
-    name:'tableData',
-    initialState:[],
-    reducers:{
-        storeTableData:(state,action)=>{
-           // console.log(state);
-            return state=action.payload
-        }
-    }
-})
-
-export const graphData=createSlice({
-    name:'graphData',
-    initialState:{
-        labels:[],
-        datasets:[
-            {data:[]}
-        ]
-    },
-    reducers:{
-        insertGraphData:(state,action)=>{
-
-        }
-    }
-})
-
 export const {addCard,deleteCard,defaultTemplate,timerStopwatch,editCard,resetStopwatchAll,setInitialCards}=cardSlice.actions
 
 export const {addTodo,deleteTodo,toggleComplete}=todoSLice.actions
 
-export const {storeTableData}=tableDataSlice.actions
-export const {insertGraphData}=graphData.actions
+
 //export default cardSlice.reducer
