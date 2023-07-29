@@ -1,19 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 //import cardSliceReducer from "./cardSlice";
-import { cardSlice, graphData } from "./cardSlice";
+import { cardSlice, graphData,todoSLice,tableDataSlice } from "./cardSlice";
 //import storage from 'redux-persist/lib/storage'; 
 import { combineReducers } from "@reduxjs/toolkit";
 import persistReducer from "redux-persist/es/persistReducer";
 // import logger from "redux-logger";
 // import thunk from "redux-thunk";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { todoSLice } from "./cardSlice";
-import { tableDataSlice } from "./cardSlice";
+
 
 const persistConfig = {
     key: 'root',
     storage:AsyncStorage,
-     blacklist: ['cards','todos']
+     blacklist: []
   };
 let rootReducer=combineReducers({
     cards:cardSlice.reducer,

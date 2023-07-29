@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import IconPicker from "react-native-icon-picker"
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function Icons(props) {
    const [showIconPicker, setShowIconPicker] = useState(false);
    const [iconname,seticonname]=useState('hourglass')
-   
   const onSelect = (icon) => {
     setShowIconPicker(false);
     props.gettingIconData(icon.icon)
-    seticonname(icon.icon)
+      seticonname(icon.icon);  
     return(
       
       seticonname(icon.icon)
@@ -21,7 +20,6 @@ export default function Icons(props) {
         
   return (
    <View style={styles.container}>
-
       <IconPicker
         showIconPicker={showIconPicker}
         toggleIconPicker={() => setShowIconPicker(!showIconPicker)}
@@ -55,8 +53,11 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems:'center',justifyContent:'center',
      backgroundColor:'white'
-   
-    
+  },loadingContainer: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // A semi-transparent dark background
   },
  
 })

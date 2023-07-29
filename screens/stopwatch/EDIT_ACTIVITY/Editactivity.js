@@ -106,16 +106,6 @@ const Editactivity = ({route,navigation}) => {
       settimerEdit({ s:0, m:0, h:0})
     }
  
-
-    const editBtn=()=>{
-      
-        dispatch(editCard({
-            id:id,title:text,icon:icondata,color:colordata,targetTime:targetTime,
-            timeElapsed:timeElapsedEdit
-        }))
-        //dispatch(timerStopwatch({id:id,timer:timerEdit}))
-        navigation.goBack()
-    }
   const gettingColorDataMemo =useCallback(
       function gettingColorData(color){
         //console.log(color); 
@@ -128,6 +118,14 @@ const gettingIconData=(ICON)=>{
   const gettingTargetTime=(time)=>{ 
     settargetTime(time)
   }
+  const editBtn=()=>{
+      
+    dispatch(editCard({
+        id:id,title:text,icon:icondata,color:colordata,targetTime:targetTime,
+        timeElapsed:timeElapsedEdit
+    }))
+    navigation.goBack()
+}
   return (
     <SafeAreaView style={styles.Mconatiner}>
      <View style={styles.container}>
@@ -147,7 +145,9 @@ const gettingIconData=(ICON)=>{
         {/* SET A ICON */}
         <View style={styles.field}>
         <Text style={{fontSize:22,fontWeight:'600',color:'white'}}>Change Icon</Text>
+       
         <Icons gettingIconData={gettingIconData} icondata={icondata}/>
+        
         </View>
 
         {/* SET A COLOR */}

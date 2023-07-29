@@ -41,11 +41,8 @@ export const cardSlice=createSlice({
         },
         timerStopwatch:(state,action)=>{
             const index=state.findIndex((watch)=>watch.id===action.payload.id)
-           // state[index].timer=action.payload.timer
            state[index].timeElapsed=action.payload.timeElapsed
-
-            //state[index].stopwatchOn=action.payload.stopwatchOn
-            //console.log(state[index].stopwatchOn);
+            return state
         }
         
     }

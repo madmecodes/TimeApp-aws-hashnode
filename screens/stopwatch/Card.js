@@ -8,6 +8,8 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { useNavigation } from '@react-navigation/native';
 import { deleteCard } from './redux/cardSlice';
 import { timerStopwatch } from './redux/cardSlice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Card = () => {
   const data=useSelector((state)=>state.cards)
@@ -18,7 +20,6 @@ const Card = () => {
   //update data as editactivty and add_activity changes
 useEffect(()=>{
   setStopwatches(data);
- // console.log(data);
 },[data,data.length])
 
 
@@ -56,8 +57,6 @@ useEffect(()=>{
     let updatedStopwatches = [...stopwatches];
     updatedStopwatches[index].isRunning = false;
     setStopwatches(updatedStopwatches);
-    console.log(stopwatches);
-
   };
   
   
@@ -67,20 +66,15 @@ useEffect(()=>{
       updatedStopwatches.forEach(stopwatch => {
         if (stopwatch.isRunning) {
           stopwatch.timeElapsed++
-          dispatch(timerStopwatch({id:stopwatch.id,timeElapsed:stopwatch.timeElapsed}))
-         
           setStopwatches(updatedStopwatches);
-         
+          //dispatch(timerStopwatch({id:stopwatch.id,timeElapsed:stopwatch.timeElapsed})) 
         }
       });
     }, 750);
     return () => clearInterval(intervalId);
   }, [stopwatches]);
   
-
-
-  
-  const formatTime = (timeInSeconds,title) => {
+  const formatTime = (timeInSeconds,id) => {
     let hours = Math.floor(timeInSeconds / 3600);
     let minutes = Math.floor((timeInSeconds % 3600) / 60);
     let seconds = timeInSeconds % 60;
@@ -133,7 +127,7 @@ useEffect(()=>{
        {/* TIMER STOPWATCH 00:00 */}
         <View style={styles.timerContainer}>
         <Text style={styles.timerNUM}>
-           {formatTime(e.timeElapsed,e.title)}
+           {formatTime(e.timeElapsed,e.id)}
          </Text>
         </View>
 
