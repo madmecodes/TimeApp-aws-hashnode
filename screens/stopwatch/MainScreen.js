@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Addactivity from './Addactivity'
 import 'react-native-gesture-handler';
@@ -17,9 +17,9 @@ const MainScreen = () => {
  <NavigationContainer independent={true}>
     <Stack.Navigator initialRouteName='STOPWATCH' screenOptions={{
         headerStyle:{backgroundColor:"#051C37"}, headerTintColor:'#fff',
-        animationEnabled: false
+        animationEnabled: false,
     }} >
-    <Stack.Screen name="back"  component={BottomTab} options={{headerShown:false}} />
+    <Stack.Screen name="back"  component={BottomTab} options={{headerShown:false}}/>
     <Stack.Screen name="Add-Activity" component={Addactivity}  />
     <Stack.Screen name="Edit-Activity" component={Editactivity}  />
   </Stack.Navigator>

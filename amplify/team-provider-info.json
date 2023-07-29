@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-timemasterawsfinal-dev-170307-authRole",
+      "UnauthRoleArn": "arn:aws:iam::474539751889:role/amplify-timemasterawsfinal-dev-170307-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::474539751889:role/amplify-timemasterawsfinal-dev-170307-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-timemasterawsfinal-dev-170307-deployment",
+      "UnauthRoleName": "amplify-timemasterawsfinal-dev-170307-unauthRole",
+      "StackName": "amplify-timemasterawsfinal-dev-170307",
+      "StackId": "arn:aws:cloudformation:ap-south-1:474539751889:stack/amplify-timemasterawsfinal-dev-170307/b0fec410-2e03-11ee-89ba-02ef098b4e0a",
+      "AmplifyAppId": "dd7wqml3t1myw"
+    },
+    "categories": {
+      "auth": {
+        "timemasterawsfinal67f3ab41": {}
+      }
+    }
+  }
+}
