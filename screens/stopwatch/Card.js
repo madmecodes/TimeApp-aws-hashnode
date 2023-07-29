@@ -6,9 +6,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { useNavigation } from '@react-navigation/native';
-import { deleteCard } from './redux/cardSlice';
-import { timerStopwatch } from './redux/cardSlice';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { deleteCard, setInitialCards } from './redux/cardSlice';
 
 
 const Card = () => {
@@ -17,10 +15,11 @@ const Card = () => {
   const dispatch=useDispatch() 
   const [stopwatches, setStopwatches] = useState(data);
 
-  //update data as editactivty and add_activity changes
-useEffect(()=>{
-  setStopwatches(data);
-},[data,data.length])
+ //update data as editactivty and add_activity changes
+  useEffect(()=>{
+      setStopwatches(data);
+    },[data,data.length]
+    )
 
 
   const handleDelete=(ID)=>{
@@ -67,9 +66,10 @@ useEffect(()=>{
         if (stopwatch.isRunning) {
           stopwatch.timeElapsed++
           setStopwatches(updatedStopwatches);
-          //dispatch(timerStopwatch({id:stopwatch.id,timeElapsed:stopwatch.timeElapsed})) 
         }
       });
+      //saving the initial state back to redux
+      dispatch(setInitialCards(stopwatches));
     }, 750);
     return () => clearInterval(intervalId);
   }, [stopwatches]);

@@ -7,6 +7,10 @@ export const cardSlice=createSlice({
     name:'cards',
     initialState:[],
     reducers:{
+        // Action to set the initial state
+        setInitialCards: (state, action) => {
+        return action.payload;
+      },
         addCard:(state,action)=>{
             const newCard={
                 id: new Date().getTime(),
@@ -97,7 +101,7 @@ export const graphData=createSlice({
     }
 })
 
-export const {addCard,deleteCard,defaultTemplate,timerStopwatch,editCard,resetStopwatchAll}=cardSlice.actions
+export const {addCard,deleteCard,defaultTemplate,timerStopwatch,editCard,resetStopwatchAll,setInitialCards}=cardSlice.actions
 
 export const {addTodo,deleteTodo,toggleComplete}=todoSLice.actions
 
