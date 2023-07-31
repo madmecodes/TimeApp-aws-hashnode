@@ -2,13 +2,15 @@
 
 Time Master is a user-friendly productivity app that helps you manage your time effectively. Create custom stopwatches for different tasks, easily switch between them, and track your time investment. The app also features a to-do list, automatically saves your time data, and presents it in a graph. Stay organized, boost productivity, and gain insights into your time allocation with Time Master.
 
-<h3 align="center"> Figma Designs </h3>
-<div align="center">
+<h3 align="center"> App Mockup (Youtube) </h3>
+<a href="https://www.youtube.com/watch?v=Rv97Ynz1Btc" target="_blank"><img src="https://github.com/Ayush-gupta-dev/TimeApp-aws-hashnode/blob/main/AWS-2.png" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /> App Mockup </a> <br>
+<!-- <div align="center">
     <img src="https://github.com/Ayush-gupta-dev/TimeApp-aws-hashnode/blob/main/PresentationFigma.gif" alt="Slideshow" height="350">
    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
    <img src="https://github.com/Ayush-gupta-dev/TimeApp-aws-hashnode/blob/main/ScreenFigma.gif" alt="Slideshow" height="350">
 </div>
-
+ -->
 ### Tech Stack
 <li> React-native cli (frontend) </li>
 <li> Redux (todo) </li>
