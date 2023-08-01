@@ -6,13 +6,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const Stats = () => {
   let data=[
-    {"color": "white", "date": "29/7/2023", "icon": "book", "id": 1690625070553, "isRunning": false, "targetTime": {"h": 3, "m": 0}, "timeElapsed": 1300, "title": "STUDY"},
-     {"color": "white", "date": "29/7/2023", "icon": "barbell", "id": 1690625070563, "isRunning": false, "targetTime": {"h": 1, "m": 15}, "timeElapsed": 5000, "title": "WORKOUT"},
-    {"color": "white", "date": "30/7/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 3000, "title": "CODING"},
-    {"color": "white", "date": "31/7/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 3600, "title": "CODING"},
-    {"color": "white", "date": "1/7/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 2600, "title": "CODING"},
-    {"color": "white", "date": "2/8/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 6600, "title": "CODING"},
-    {"color": "white", "date": "3/8/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 0, "title": "CODING"}
+    {"color": "white", "date": "26/7/2023", "icon": "book", "id": 1690625070553, "isRunning": false, "targetTime": {"h": 3, "m": 0}, "timeElapsed": 1000, "title": "STUDY"},
+     {"color": "white", "date": "27/7/2023", "icon": "barbell", "id": 1690625070563, "isRunning": false, "targetTime": {"h": 1, "m": 15}, "timeElapsed": 5000, "title": "WORKOUT"},
+    {"color": "white", "date": "27/7/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 3000, "title": "CODING"},
+    {"color": "white", "date": "28/7/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 24800, "title": "CODING"},
+    {"color": "white", "date": "29/7/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 2600, "title": "CODING"},
+    {"color": "white", "date": "29/7/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 6600, "title": "CODING"},
+    {"color": "white", "date": "30/7/2023", "icon": "code", "id": 1690625070564, "isRunning": false, "targetTime": {"h": "0", "m": "0"}, "timeElapsed": 16560, "title": "CODING"}
     
     ]
   const groupedData = Object.values(groupBy(data, 'date')).map((items) => ({
